@@ -1,0 +1,83 @@
+/* These styles are intended only for the job board example, and do not address selectors
+    that will exist on every embedded job board. */
+
+html {
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+  touch-action: manipulation;
+}
+
+body {
+  background-color: #f7f8fa;
+  color: #373e4d;
+  font-family: "Whitney SSm", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+}
+
+input {
+  color: #191919;
+}
+
+p,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.7em;
+  margin: 0;
+  padding: 0;
+}
+
+div {
+  line-height: 0;
+}
+
+p {
+  line-height: 1.7em;
+}
+
+a {
+  color: #483fad;
+
+  /* Any <a> without a class */
+  &:not([class]):visited {
+    color: #080066;
+  }
+}
+
+* {
+  *:focus {
+    outline: none;
+  }
+}
+
+.application-form-embed-container {
+  text-align: center;
+}
+
+.application-form-embed-container iframe {
+  max-width: 600px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 18px 0;
+}
+
+.button-container button {
+  background-color: orange;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(28, 26, 51, 0.25);
+  color: white;
+  cursor: pointer;
+  font-family: "Whitney SSm", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Helvetica", "Arial", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  margin-left: 10px;
+  padding: 16px;
+}

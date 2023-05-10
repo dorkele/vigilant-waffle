@@ -1,0 +1,669 @@
+backend:
+  name: git-gateway
+  branch: develop
+  squash_merges: true
+media_folder: public/images
+public_folder: /images
+publish_mode: editorial_workflow
+site_url: https://www.ashbyhq.com
+logo_url: https://www.ashbyhq.com/wordmark.svg
+
+collections:
+  - name: config
+    label: Site Config
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: general
+        label: Site Config
+        file: config.json
+        description: General site settings
+        fields:
+          - label: URL
+            name: base_url
+            widget: string
+            hint: Do not enter the trailing slash of the URL
+          - label: Site title
+            name: site_title
+            widget: string
+          - label: Site description
+            name: site_description
+            widget: string
+          - label: Homepage Banner
+            name: homepage_banner
+            widget: object
+            fields:
+              - label: Text
+                name: banner_text
+                widget: string
+              - label: Link Text
+                name: link_text
+                widget: string
+              - label: Link URL
+                name: link_url
+                widget: string
+          - label: Site keywords
+            name: site_keywords
+            widget: list
+            summary: "{{fields.keyword.keyword}}"
+            field:
+              label: Keyword
+              name: keyword
+              widget: string
+          - label: Twitter account
+            name: twitter_account
+            widget: string
+          - label: GitHub account
+            name: github_account
+            widget: string
+          - label: Team order
+            name: team_order
+            hint: Only add an employee once!
+            widget: relation
+            collection: employees
+            multiple: true
+            min: 1
+            search_fields: [name]
+            display_fields: [name]
+            value_field: slug
+            required: false
+          - label: Homepage quotes order
+            name: homepage_quotes_order
+            widget: relation
+            collection: customer_quotes
+            multiple: true
+            min: 1
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Homepage ATS tab quote
+            name: homepage_ats_quote
+            widget: relation
+            collection: customer_quotes
+            multiple: false
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Homepage Scheduling tab quote
+            name: homepage_scheduling_quote
+            widget: relation
+            collection: customer_quotes
+            multiple: false
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Homepage CRM tab quote
+            name: homepage_crm_quote
+            widget: relation
+            collection: customer_quotes
+            multiple: false
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Homepage Analytics tab quote
+            name: homepage_analytics_quote
+            widget: relation
+            collection: customer_quotes
+            multiple: false
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Pricing page quotes order
+            name: pricing_page_quotes_order
+            widget: relation
+            collection: customer_quotes
+            multiple: true
+            min: 1
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Request demo page quote
+            name: request_demo_page_quote
+            widget: relation
+            collection: customer_quotes
+            multiple: false
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Customers page quotes order
+            name: customers_page_quotes_order
+            widget: relation
+            collection: customer_quotes
+            multiple: true
+            min: 1
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+          - label: Growth page, customer success quote
+            name: growth_page_cs_quote
+            widget: relation
+            collection: customer_quotes
+            multiple: false
+            min: 1
+            search_fields: [ slug ]
+            display_fields: [ slug ]
+            value_field: slug
+            required: false
+  - name: employees
+    label: Employees
+    folder: content/employees/
+    format: yaml
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{name}}"
+    editor:
+      preview: false
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+        hint: The part of a URL identifies the employee
+        required: true
+      - label: Name
+        name: name
+        widget: string
+        hint: First and last
+        required: true
+      - label: Is Onboarding?
+        name: is_new
+        widget: boolean
+        default: false
+        required: false
+        hint: Whether they are onboarding
+      - label: Position
+        name: position
+        widget: string
+        hint: Department(s)
+        required: true
+      - label: Square Profile Photo
+        name: profile_photo
+        widget: file
+        hint: At least 300x300
+        required: true
+      - label: LinkedIn
+        name: linkedin
+        widget: string
+        hint: Public LinkedIn url
+      - label: Twitter account
+        name: twitter_account
+        widget: string
+      - label: Country Emoji
+        name: country
+        widget: string
+        hint: Use an emoji!
+        required: true
+      - label: Impactful Ashby Project
+        name: impactful_project
+        widget: text
+        hint: What have you built or improved that's had the most impact at Ashby?
+      - label: Helpful Ashby Project
+        name: helpful_project
+        widget: text
+        hint: What have you built that's helped other people at Ashby?
+      - label: Ashby Onboarding Experience
+        name: onboarding_experience
+        widget: text
+      - label: Ashby Surprise
+        name: surprise
+        widget: text
+        hint: What's the most surprising thing about Ashby?
+      - label: Links
+        name: links
+        widget: list
+        summary: "{{type}} - {{title}}"
+        fields:
+          - label: Type
+            name: type
+            widget: select
+            options:
+              - { label: Writing, value: writings }
+              - { label: Talks, value: talks }
+              - { label: Portfolio, value: portfolio }
+              - { label: Art, value: art }
+          - label: URL
+            name: url
+            widget: string
+      - label: Guest author?
+        name: guest_author
+        widget: boolean
+        hint: Is this persona  guest author? Guest authors do not show on the team page
+  - name: meta
+    label: Meta
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: tags
+        label: Tags
+        file: meta/tags.yml
+        description: List of tags
+        fields:
+          - name: tags
+            label: Tags
+            label_singular: Tag
+            widget: list
+            fields:
+              - label: Slug
+                name: slug
+                widget: string
+                hint: The part of a URL identifies the tag
+              - label: Display Name
+                name: name
+                widget: string
+                hint: Tag name for displaying on the site
+      - name: blogs
+        label: Blogs
+        file: meta/blogs.yml
+        description: List of tags
+        fields:
+          - name: blogs
+            label: Blogs
+            label_singular: Blog
+            widget: list
+            fields:
+              - label: Slug
+                name: slug
+                widget: string
+                hint: The part of a URL identifies the tag
+              - label: Display Name
+                name: name
+                widget: string
+                hint: Name for displaying on the site in the nav
+              - label: Featured Post
+                name: featured
+                widget: relation
+                collection: posts
+                multiple: false
+                search_fields: [slug, title]
+                display_fields: [title]
+                value_field: slug
+                required: false
+  - name: posts
+    label: Posts
+    folder: content/posts/
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    fields:
+      - label: Blog
+        name: blog
+        widget: relation
+        multiple: false
+        collection: meta
+        file: blogs
+        search_fields:
+          - blogs.*.name
+        display_fields:
+          - blogs.*.name
+        value_field: blogs.*.slug
+        required: true
+      - label: Slug
+        name: slug
+        widget: string
+        required: true
+      - label: Use Page Builder Layout
+        name: page_builder
+        widget: boolean
+        required: false
+      - label: Title
+        name: title
+        widget: string
+        required: true
+      - label: Summary
+        name: summary
+        widget: text
+        required: true
+      - label: Hero Image
+        name: hero_image
+        widget: file
+        hint: Not required but will be used in feed and social posts
+      - label: Publish Date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+        dateFormat: YYYY-MM-DD
+        timeFormat: false
+        required: true
+      - label: Changelog
+        name: changelog
+        widget: list
+        summary: "{{type}} - {{title}}"
+        fields:
+          - label: Update Date
+            name: date
+            widget: datetime
+            format: YYYY-MM-DD
+            dateFormat: YYYY-MM-DD
+            timeFormat: false
+            required: true
+          - label: Description
+            name: url
+            widget: markdown
+      - label: Last Update Date
+        name: last_update_date
+        widget: datetime
+        format: YYYY-MM-DD
+        dateFormat: YYYY-MM-DD
+        timeFormat: false
+        required: false
+      - label: Is Snippet?
+        name: is_snippet
+        widget: boolean
+        default: false
+        required: true
+        hint: Will be treated as a short article and shown in a different section from long form articles
+      - label: Authors
+        name: authors
+        required: true
+        widget: relation
+        collection: employees
+        multiple: true
+        min: 1
+        search_fields: [name]
+        display_fields: [name]
+        value_field: slug
+      - label: Tags
+        name: tags
+        widget: relation
+        multiple: true
+        collection: meta
+        file: tags
+        search_fields:
+          - tags.*.name
+        display_fields:
+          - tags.*.name
+        value_field: tags.*.slug
+      - label: Read Time
+        name: read_time
+        widget: number
+        default: 6
+        value_type: "int"
+        min: 1
+        step: 1
+        required: true
+        hint: Read time in minutes
+      - label: Body
+        name: body
+        widget: markdown
+        hint: Do not use H1s (# in markdown) as those are reserved for the blog title
+  - name: company_resources
+    label: Company Resources
+    folder: content/company_resources/
+    extension: mdx
+    format: frontmatter
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    editor:
+      preview: false
+    fields:
+      - label: Slug
+        name: slug
+        widget: string
+        required: true
+      - label: Title
+        name: title
+        widget: string
+        required: true
+      - label: Last Update Date
+        name: last_update_date
+        widget: datetime
+        format: YYYY-MM-DD
+        dateFormat: YYYY-MM-DD
+        timeFormat: false
+        required: false
+      - label: Body
+        name: body
+        widget: markdown
+  - name: products
+    label: Product Pages
+    format: yaml
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{title}}"
+    files:
+      - name: ashby-for-enterprise
+        label: Ashby for Enterprise
+        file: content/products/ashby-for-enterprise.yml
+        description: Product features and content for Ashby for Enterprise page
+        fields:
+          - label: feature
+            name: Feature
+            widget: list
+            fields: 
+              - label: Category
+                name: category
+                widget: select
+                options:
+                  - { label: Productivity, value: productivity }
+                  - { label: Scheduling, value: scheduling }
+                  - { label: Interviews, value: interviews }
+                  - { label: Collaboration, value: collaboration }
+                  - { label: Customizability, value: customizability }
+              - label: Id
+                name: id
+                widget: string
+                required: true
+              - label: Title
+                name: title
+                widget: string
+                required: true
+              - label: Short Description
+                name: short_description
+                widget: text
+              - label: Icon
+                name: icon
+                widget: file
+                hint: Use one of the available icons from the icon library
+              - label: Customer Quote
+                name: customer_quote
+                widget: relation
+                collection: customer_quotes
+                required: false
+                multiple: true
+                search_fields: [name, company]
+                display_fields: [name]
+                value_field: slug
+              - label: Product Shot
+                name: product_shot
+                widget: file
+                hint: A product image to highlight the feature
+  - name: customer_profiles
+    label: Customer Profiles
+    folder: content/customers/profiles/
+    media_folder: ../../../public/customers/profiles
+    public_folder: /customers/profiles
+    format: yaml
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{name}}"
+    editor:
+      preview: false
+    fields: 
+      - label: Slug
+        name: slug
+        widget: string
+        required: true
+      - label: Name
+        name: name
+        widget: string
+        hint: The Banana Stand
+        required: true
+      - label: Logo
+        name: logo
+        required: false
+        widget: file
+        hint: A clean svg or png file that matches the slug name.
+      - label: Description
+        name: description
+        widget: string
+        required: false
+      - label: Founded
+        name: founded
+        widget: date
+        format: YYYY
+        date_format: YYYY
+        required: false
+      - label: Size
+        name: size
+        widget: number
+        hint: Will likely be displayed as "{number}+ Employees"
+        value_type: int
+        required: false
+      - label: Website
+        name: website
+        widget: object
+        collapsed: true
+        required: false
+        fields: 
+          - label: URL
+            name: url
+            widget: string
+            required: true
+          - label: Label
+            name: label
+            widget: string
+            required: true
+      - label: Reason for switching
+        name: reason_for_switching
+        widget: string
+        required: false
+      - label: Setup time
+        name: setup_time
+        widget: string
+        required: false
+      - label: Product
+        name: product
+        required: false
+        widget: "select"
+        options:
+          - label: Ashby All-In-One
+            value: all_in_one
+          - label: Analytics
+            value: analytics
+  - name: customer_champions
+    label: Customer Champions
+    editor:
+      preview: false
+    media_folder: ../../../public/customers/champions
+    public_folder: /customers/champions/
+    folder: content/customers/champions
+    format: yaml
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{name}} - {{customer_profiles.name}}"
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+      - name: name
+        label: Name
+        widget: string
+      - name: title
+        label: Title
+        widget: string
+        hint: Mr. Manager
+      - label: Square Avatar Photo
+        name: avatar
+        widget: file
+        hint: Preferably 300x300
+        required: false
+      - name: company
+        label: Company
+        hint: Should be a Customer Profile
+        widget: relation
+        multiple: false
+        collection: customer_profiles
+        search_fields: [name, slug]
+        display_fields: [name]
+        value_field: slug
+  - name: customer_quotes
+    label: Customer Quotes
+    folder: content/customers/quotes/
+    format: yaml
+    create: true
+    slug: "{{slug}}"
+    identifier_field: slug
+    summary: "{{quote_author}} - {{quote_text}}"
+    editor:
+      preview: false
+    fields:
+      - name: slug
+        label: Slug
+        widget: string
+      - label: Quote Text
+        name: quote_text
+        widget: text
+        required: true
+      - label: Quote Author
+        name: quote_author
+        widget: relation
+        required: true
+        collection: customer_champions
+        multiple: false
+        search_fields: [name, slug]
+        display_fields: [name]
+        value_field: slug
+      - label: Type
+        name: Quote Type
+        widget: select
+        required: false
+        options:
+          - label: Customer Support
+            value: customerSupport
+          - label: ATS
+            value: ats
+          - label: CRM
+            value: crm
+          - label: Scheduling
+            value: scheduling
+          - label: Analytics
+            value: analytics
+  - name: faq
+    label: Pricing FAQ
+    delete: false
+    editor:
+      preview: false
+    files:
+      - name: faq
+        label: Pricing FAQ
+        file: content/pricingFAQ.yml
+        fields:
+          - name: faq
+            label: Pricing FAQ
+            label_singular: Question/Answer
+            widget: list
+            fields:
+              - label: Slug
+                name: slug
+                widget: string
+                hint: The part of the url that identifies the question. Use lowercase.
+              - label: Question
+                name: question
+                widget: string
+                required: true
+              - label: Answer
+                name: answer
+                widget: text
+                required: true
+              - label: Testimonial
+                name: testimonial
+                widget: text
+                required: false

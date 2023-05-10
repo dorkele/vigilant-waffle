@@ -1,0 +1,14 @@
+blogs:
+  - slug: all
+    name: All
+    featured: thoughtful-communication
+  - slug: culture
+    name: Culture
+    featured: ashbys-operating-principles
+  - slug: engineering
+    name: Engineering
+    featured: thoughtful-communication
+  - slug: recruiting
+    name: Recruiting
+  - slug: product
+    name: Product

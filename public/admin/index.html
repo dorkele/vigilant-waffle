@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ashby WWW - Content Manager</title>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Playfair+Display:wght@900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Hack to fix an issue where cursor in text editor jumps to the end of content.  -->
+    <!-- Bug: https://cdn.zappy.app/cc2ffe4b9861832e57f13090cf92544e.mp4 -->
+    <!-- Fix: https://github.com/netlify/netlify-cms/issues/5092 -->
+    <style>
+      [data-slate-editor] { 
+        -webkit-user-modify: read-write !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Include the script that builds the page and powers Netlify CMS -->
+    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+    <script>
+      CMS.registerPreviewStyle("/styles/variables.css");
+      CMS.registerPreviewStyle("/styles/font.css");
+      CMS.registerPreviewStyle("/styles/content.module.css");
+      var PostPreview = createClass({
+        render: function () {
+          var entry = this.props.entry;
+          var date = entry.getIn(["data", "date"]);
+          return h(
+            "div",
+            { className: "content" },
+            h("h1", {}, entry.getIn(["data", "title"])),
+            h("time", {}, entry.getIn(["data", "date"])),
+            h("div", {}, this.props.widgetFor("body"))
+          );
+        },
+      });
+      CMS.registerPreviewTemplate("posts", PostPreview);
+    </script>
+  </body>
+</html>

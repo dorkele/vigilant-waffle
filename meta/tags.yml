@@ -1,0 +1,87 @@
+tags:
+  - slug: communication
+    name: Communication
+  - slug: remote-work
+    name: Remote Work
+  - slug: typescript
+    name: Typescript
+  - slug: javascript
+    name: Javascript
+  - slug: jest
+    name: Jest
+  - slug: testing
+    name: Testing
+  - slug: recruiting-ops
+    name: Recruiting Ops
+  - slug: metrics
+    name: Metrics
+  - slug: productivity
+    name: Productivity
+  - slug: json
+    name: JSON
+  - slug: xml
+    name: XML
+  - slug: developer-tools
+    name: Developer Tools
+  - slug: developer-experience
+    name: Developer Experience
+  - slug: rich-text
+    name: Rich Text
+  - slug: open-source
+    name: Open Source
+  - slug: rich-text-editor
+    name: Rich Text Editor
+  - slug: wysiwyg
+    name: WYSIWYG
+  - slug: datadog
+    name: Datadog
+  - slug: debugging
+    name: Debugging
+  - slug: node
+    name: Node
+  - slug: product-update
+    name: Product Update
+  - slug: DEI
+    name: Diversity Equity Inclusion
+  - slug: data
+    name: Data
+  - slug: recruiting
+    name: Recruiting
+  - slug: hiring
+    name: Hiring
+  - slug: founders
+    name: Founders
+  - slug: github
+    name: GitHub
+  - slug: github-actions
+    name: GitHub Actions
+  - slug: continuous-deployment
+    name: Continuous Deployment
+  - slug: es2022
+    name: ES2022
+  - slug: candidate-experience
+    name: candidate experience
+  - slug: interviewing
+    name: interviewing
+  - name: surveys
+    slug: surveys
+  - slug: company-culture
+    name: company culture
+  - slug: partnership-integration
+    name: partnerships and integrations
+  - slug: engineering-process
+    name: Engineering Process
+  - slug: remote-work
+    name: Remote Work
+  - slug: careers-page
+    name: careers page
+  - slug: job-descriptions
+    name: job descriptions
+  - slug: design
+    name: design
+  - slug: sourcing
+    name: Sourcing
+  - slug: sequencing
+    name: Sequencing
+  - slug: outreach
+    name: Outreach

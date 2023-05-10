@@ -1,0 +1,16 @@
+slug: posthog
+name: PostHog
+logo: /customers/profiles/posthog.svg
+description: PostHog is an open source analytics platform. Their product is used
+  by product, engineering, and marketing teams to understand user behavior,
+  including product analytics, session recording, user paths, a/b testing,
+  heatmaps, and more. The suite, founded through Y Combinator in 2020, has since
+  been installed by over 10,000 companies.
+founded: "2022"
+size: 34
+website:
+  label: PostHog.com
+  url: https://posthog.com/
+reason_for_switching: Wanted a more customized, stand out candidate journey
+setup_time: 1 Week
+product: all_in_one

@@ -1,0 +1,85 @@
+$desktopMinWidth: 769px;
+$mobileMaxWidth: 768px;
+$twoColumnMinWidth: 980px;
+
+@mixin desktop {
+  @media (min-width: $desktopMinWidth) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobileMaxWidth) {
+    @content;
+  }
+}
+
+@mixin resetList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+// *----------------- Flex & Centering -----------------*
+
+@mixin flexType($isBlock: false) {
+  @if $isBlock {
+    display: flex;
+  }
+
+  @else {
+    display: inline-flex;
+  }
+}
+
+/**
+ * The element expands along the flex axis as large as it possibly can
+ */
+@mixin flexGreedy {
+  flex: 1 1 auto;
+}
+
+/**
+ * The element only takes as much space as its content needs, no more, no less
+ */
+@mixin flexContentDimOnly {
+  flex: 0 0 auto;
+}
+
+/**
+ * Center all children vertically and horizontally.
+ */
+@mixin allAxisCenterChildren($isBlock: false) {
+  @include flexType($isBlock);
+
+  align-items: center;
+  justify-content: center;
+}
+
+/**
+ * Center all children vertically
+ */
+@mixin verticallyCenterChildren($isBlock: false) {
+  @include flexType($isBlock);
+
+  align-items: center;
+}
+
+/**
+ * Center all children horizontally
+ */
+@mixin horizontallyCenterChildren($isBlock: false) {
+  @include flexType($isBlock);
+
+  justify-content: center;
+}
+
+// *----------------- Animation -----------------*
+
+/**
+ * The standard transition duration and timing function
+ */
+@mixin transitionTiming {
+  transition-duration: var(--transitionDuration);
+  transition-timing-function: var(--transitionFunction);
+}

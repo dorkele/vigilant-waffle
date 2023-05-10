@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Embedded Job Board Test</title>
+
+  <!-- This is some custom styling for the site that surround the application. -->
+  <link rel="stylesheet" type="text/css"
+    href="/job_board_example_css/example-job-site-styles.css">
+</head>
+
+<body>
+  <!-- This header content is to show that the embedded content should go directly alongside your other custom
+        job board content -->
+  <div style="text-align:center;">
+    <h1>My Orange Job Board</h1>
+    <p><i>This example has been hard-coded to an example Ashby
+        instance.</p>
+  </div>
+
+  <div id="ashby_embed"></div>
+  <script>
+    window.__ashbyBaseJobBoardUrl = "https://jobs.ashbyhq.com/ashby-embed-demo-org"
+  </script>
+  <script id="ashby-script" src="https://jobs.ashbyhq.com/ashby-embed-demo-org/embed"></script>
+</body>
+
+</html>

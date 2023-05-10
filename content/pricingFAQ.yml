@@ -1,0 +1,87 @@
+faq:
+  - slug: why_demo
+    question: Why take a demo?
+    answer: Your hiring processes and workflows are unique and critical to your
+      entire team’s efficiency. We therefore feel it is important to invest a
+      short amount of time upfront to ensure Ashby is the right fit to set you
+      up for success. The call will quickly cover your hiring goals, give you a
+      brief demo of the relevant product features and workflows, and allow you
+      to assess whether we have the right solution. We are committed to
+      transparent pricing so the above price will not change during the sales
+      process.
+    testimonial: Daniel Grayson, VP of Talent at Astronomer, recently told us that
+      “We've been getting fantastic feedback from our recruiting team and hiring
+      managers. Once Ashby is set up it removes a TON of friction from the
+      experience for both candidates and managers.“
+  - slug: pricing_work
+    question: How does pricing work for startups?
+    answer: Our startup pricing model is based on the size of your organization at
+      that point of purchase, not on a seat or talent team basis. Startup plans
+      also include 200 email lookups per month, and more can be purchased.
+      Pricing is reassessed annually. The aim is to provide affordable usage so
+      you can put the right tooling for scale in early. Once your organization
+      exceeds 100 full-time employees we move to a custom pricing model so that
+      we can consider the complexities of your business.
+  - slug: charge_module
+    question: Does Ashby charge for each module?
+    answer: No. With our All-in-One solution, it’s one price for the entire platform
+      across ATS, Sourcing, CRM, Scheduling, and Analytics.
+    testimonial: Camilla Lever, Director of People at Coder, shared that she “found
+      Ashby to be the missing link between sourcing and staying on top of active
+      candidates. I wanted to consolidate my tools, and this was a great way for
+      me to combine Sourcing and CRM with an ATS.“ <a
+      href="https://www.ashbyhq.com/customers/coder">Read how</a> Coder
+      consolidated their 4 tools into one with Ashby.
+  - slug: support_type
+    question: What type of support does Ashby offer?
+    answer: Our support team is available to help all customers via email and widely
+      regarded as best-in-class. For more strategic questions around hiring
+      excellence and implementation, we have a customer success team that can
+      support you.
+    testimonial: "Chandon Lohdan, Hiring at CoinTracker, was kind enough to say
+      about Ashby: “Best of all they have a strong & responsive support team,
+      they make on-boarding super easy. I wish Ashby had been around when we
+      launched so we could have just started with them from the beginning.“"
+  - slug: charge_impl
+    question: Does Ashby charge for implementation?
+    answer: No – implementation is included in overall subscription fee. We support
+      all of our growth / enterprise customers with a dedicated customer success
+      manager to support your talent team’s implementation, onboarding and
+      consulting on best practices.  Startup customers have access to our Scaled
+      Customer Success and Support teams.
+  - slug: what_ats
+    question: What ATS can I use Ashby Analytics with?
+    answer: Greenhouse and Lever. We are integrating with new ATS tools currently,
+      so please reach out if you are interested in a specific integration.
+  - slug: importing_spreadsheet
+    question: How does importing data from my current ATS or spreadsheet work?
+    answer: We provide an API integration with Greenhouse and Lever instances for a
+      fast and robust data migration. You can expect data migration to take a
+      day or two and our customer success team will then guide you on additional
+      configuration options. We also offer a CSV import tool for structured
+      candidate data coming from other ATSs or spreadsheets.
+  - slug: payment
+    question: What are my payment options?
+    answer: You can select a monthly or annual plan. Annual plans include 10%
+      savings relative to the equivalent monthly option. Monthly plans require
+      payment by credit card, while annual plans can be paid by credit card,
+      direct deposit, and wire transfers.
+  - slug: charge_integration
+    question: Do you charge for integrations?
+    answer: No. And if we are missing an integration, we are happy to discuss adding
+      it. Reach out to your Customer Success Manager or our <a
+      href="mailto:support@ashbyhq.com">Support Team</a> to request an
+      integration. You can learn more about our extensive integration ecosystem
+      and and our <a href="https://developers.ashbyhq.com/" target="_blank"
+      ref="noopener noreferrer">open API here.</a>
+  - slug: referral_bonus
+    question: Is there a referral bonus if we refer new customers?
+    answer: Yes. In addition to a $250 Visa gift card, we apply a $250 credit to
+      your account for every activated customer that comes through your referral
+      link (link can be found in product under the ‘?’ button in the bottom left
+      corner).
+  - slug: cancel_plan
+    question: How do I cancel my plan?
+    answer: You can reach out to <a
+      href="mailto:support@ashbyhq.com">support@ashbyhq.com</a>, or contact your
+      dedicated customer success manager if you need to cancel your plan.

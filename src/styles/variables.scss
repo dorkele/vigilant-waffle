@@ -1,0 +1,21 @@
+$spacingXxxsmall: 0.125rem;
+$spacingXxsmall: 0.25rem;
+$spacingXsmall: 0.5rem;
+$spacingSmall: 0.75rem;
+$spacingNormal: 1rem;
+$spacingLarge: 1.5rem;
+$spacingXlarge: 2rem;
+$spacingXxlarge: 3rem;
+$spacingXxxlarge: 4rem;
+
+$spacing: (
+  xxxlarge: $spacingXxxlarge,
+  xxlarge: $spacingXxlarge,
+  xlarge: $spacingXlarge,
+  large: $spacingLarge,
+  normal: $spacingNormal,
+  small: $spacingSmall,
+  xsmall: $spacingXsmall,
+  xxsmall: $spacingXxsmall,
+  xxxsmall: $spacingXxxsmall,
+);
