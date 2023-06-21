@@ -8,7 +8,22 @@ import { FeaturedQuote } from "./Quote";
 
 export const FeaturedQuotesTabs = ({ quotes }: { quotes: CustomerQuote[] }) => {
   const [selectedQuote, setSelectedQuote] = React.useState(quotes[0]);
+  let intervalId
 
+  React.useEffect(()=>{
+    const index = quotes.findIndex(quote => {
+      return quote.slug === selectedQuote.slug;
+    });
+
+    intervalId = setInterval(()=>{
+      index + 1 < quotes.length ? setSelectedQuote(quotes[index+1]) : setSelectedQuote(quotes[0])
+    },10000)
+
+    return (
+      ()=>clearInterval(intervalId)
+    )
+  },[selectedQuote])
+  
   return (
     <Stack.V spacing={{ "@tablet": "6" }}>
       <Container size="normal" css={{ p: 0, minHeight: 400 }}>
