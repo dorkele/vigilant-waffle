@@ -18,7 +18,7 @@ export const IconBox = styled("div", {
       },
       avatarRound: {
         overflow: "hidden",
-        borderRadius: "$round1",
+        borderRadius: "$round",
       },
     },
     size: {

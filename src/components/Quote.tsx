@@ -60,8 +60,8 @@ export const FeaturedQuote = ({ className, ...quote }: QuoteProps) => {
       css={{ ta: "center" }}
     >
       <IconBox
-        size="5"
-        appearance={"avatar"}
+        size="6"
+        appearance={"avatarRound"}
         css={{ boxShadow: "$elevation1", "> *": { width: "100% !important" } }}
       >
         <NextImage
